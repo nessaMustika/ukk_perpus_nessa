@@ -1,62 +1,40 @@
-
 <?php include '../app/views/templates/header.php'; $no = 1; ?>
 <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-                <a href="<?= urlTo('/buku/create'); ?>" class="btn btn-primary float-right">Tambah Data</a>
-              </div>
-              <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Kategori</th>
-                    <th>Judul</th>
+                    <th>Judul Buku</th>
                     <th>Penulis</th>
                     <th>Penerbit</th>
-                    <th>Tahun Terbit</th>
                     <th>Tindakan</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php foreach ($data as $buku): ?>
-                  	<tr>
-                  		<td><?= $no; ?></td>
-                  		<td><?= $buku['NamaKategori']; ?></td>
-                  		<td><?= $buku['Judul']; ?></td>
-                  		<td><?= $buku['Penulis']; ?></td>
-                  		<td><?= $buku['Penerbit']; ?></td>
-                  		<td><?= $buku['TahunTerbit']; ?></td>
+                  <?php foreach ($data as $k): ?>
+                    <tr>
+                      <td><?= $no; ?></td>
+                      <td><?= $k['Judul']; ?></td>
+                      <td><?= $k['Penulis']; ?></td>
+                      <td><?= $k['Penerbit']; ?></td>
                       <td>
-                        <a 
-                          href="<?= urlTo('/buku/'.$buku['BukuID'].'/edit') ?>"
-                          class="btn btn-warning
-                          ">
-                          Edit
-                        </a>
-
-                        <a 
-                          href="<?= urlTo('/buku/'.$buku['BukuID'].'/delete') ?>"
-                          class="btn btn-danger
-                          ">
+                        <a href="<?= urlTo('/koleksi/'.$k['KoleksiID'].'/delete') ?>" class="btn btn-danger">
                           Delete
                         </a>
                       </td>
-                  	</tr>
-                  	<?php $no++; ?>
+                    </tr>
                   <?php endforeach ?>
                   </tbody>
                   <tfoot>
                   <tr>
                     <th>#</th>
-                    <th>Kategori</th>
-                    <th>Judul</th>
+                    <th>Judul Buku</th>
                     <th>Penulis</th>
                     <th>Penerbit</th>
-                    <th>Tahun Terbit</th>
                     <th>Tindakan</th>
                   </tr>
                   </tfoot>
